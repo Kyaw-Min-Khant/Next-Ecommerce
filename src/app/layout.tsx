@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
+import DashboardWrapper from "@/app/dashboardWrapper";
+import { ReactQueryClientProvider } from "@/services/provider/ReactQueryClientProvider";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -24,12 +26,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ReactQueryClientProvider>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+         <DashboardWrapper>
+        
+          {children}    
+          
+       </DashboardWrapper>
       </body>
     </html>
+    </ReactQueryClientProvider>
   );
 }
