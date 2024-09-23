@@ -22,7 +22,7 @@ const Loading=()=>{
 const skeletonCount = 12;
 const skeletons = Array.from({ length: skeletonCount }, (_, index) => <Cart key={index} />);
 return (
-<div className="flex h-screen overflow-hidden justify-center gap-x-5 gap-y-10 flex-wrap items-center">
+<div className="flex h-screen container mx-auto overflow-hidden justify-center gap-x-5 gap-y-10 flex-wrap items-center">
 {skeletons}
 </div>
     )

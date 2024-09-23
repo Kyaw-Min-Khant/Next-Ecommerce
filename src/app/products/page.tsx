@@ -8,7 +8,7 @@ import Cart, { CardType } from "../(components)/cart";
   const {data,isLoading}= useQuery({queryKey:['getAllData'],queryFn:getAllProducts})
   const renderCards = useMemo(() => {
     return (
-      <div className="flex justify-center gap-x-5 gap-y-10 flex-wrap items-center">
+      <div className="flex container mx-auto justify-center gap-x-5 gap-y-10 flex-wrap items-center">
         {data?.map((item: CardType) => (
           <Cart key={item.id} {...item} />
         ))}
