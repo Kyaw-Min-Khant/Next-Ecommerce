@@ -5,8 +5,10 @@ import { Input } from "@/components/ui/input"
 import useForm from "@/hooks/useForm"
 import { login } from "@/services/api/auth"
 import { useMutation } from "@tanstack/react-query"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
+
 const  Login =()=>{
+   const router = useRouter();
    const formLogin=()=>{
    mutation.mutate(values as {username:string,password:string});
    }
@@ -16,7 +18,7 @@ const  Login =()=>{
       onSuccess:(data)=>{
          if(data?.data?.token){
           document.cookie=`auth_token=${data?.data?.token}${15}` ;
-          redirect('/products')
+          router.push('/products')
          }
       },
       onError:(error)=>window.alert(error?.message)

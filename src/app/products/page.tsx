@@ -4,15 +4,7 @@ import {useQuery} from "@tanstack/react-query"
 import {  useMemo } from "react";
 import Loading from "./loading";
 import Cart, { CardType } from "../(components)/cart";
-import { getCookie } from "@/utlils/cookie";
-import { redirect } from "next/navigation";
  const DashBoard = () => {
-  const token=getCookie('auth_token');
-  console.log(token)
- if(token===null){
-  return redirect('/login')
- }
- 
   const {data,isLoading}= useQuery({queryKey:['getAllData'],queryFn:getAllProducts})
   const renderCards = useMemo(() => {
     return (
