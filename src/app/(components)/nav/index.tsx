@@ -7,7 +7,7 @@ import {
 import { ShoppingCart } from 'lucide-react';
 import { StateContextCustom } from "@/services/provider/stateProvider";
 import { useRouter } from "next/navigation";
-// import { DrawerTrigger } from "@/components/ui/drawer";
+import { DrawerTrigger } from "@/components/ui/drawer";
   const Nav=()=>{
     const {state}=StateContextCustom();
     const item_count=state?.cartList?.length
@@ -22,9 +22,9 @@ return (
         <div className=" absolute top-[-10px]  right-[-10px] w-5 h-5 rounded-full bg-red-600 justify-center items-center">
             <h1 className=" text-white text-sm text-center my-auto">{item_count}</h1>
         </div>
-        {/* <DrawerTrigger> */}
+        <DrawerTrigger asChild>
         <ShoppingCart color="white" size={24} />
-        {/* </DrawerTrigger> */}
+        </DrawerTrigger>
     </div>
     <Avatar onClick={()=>router.push('profile')} >
       <AvatarImage src="https://i.pinimg.com/564x/8f/85/d1/8f85d19c27888bb913f4caba58760851.jpg" alt="Profile" />

@@ -6,6 +6,5 @@ export const getAllProducts = async () => {
   };
 export const getAProduct=async(id:number)=>{
   const response=await BASE_URL.get(`products/${id}`)
-  console.log(response?.data)
   return response.data
 }

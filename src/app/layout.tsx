@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import DashboardWrapper from "@/app/dashboardWrapper";
 import { ReactQueryClientProvider } from "@/services/provider/ReactQueryClientProvider";
+import { Toaster } from "@/components/ui/toaster"
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -31,11 +33,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-         <DashboardWrapper>
-        
-          {children}    
-          
+         <DashboardWrapper>   
+          {children}              
        </DashboardWrapper>
+       <Toaster />
       </body>
     </html>
     </ReactQueryClientProvider>

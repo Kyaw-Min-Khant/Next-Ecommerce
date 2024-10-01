@@ -9,7 +9,6 @@ const Page=async({ params }: { params: { id: number } })=>{
     const id=params?.id
     await queryClient.prefetchQuery({queryKey:['getAProduct', id],queryFn: () =>getAProduct(id) });
     const data:CardType|undefined= queryClient.getQueryData(['getAProduct', id]);
-   console.log(data)
 
 return <div className="flex items-center gap-x-10 min-h-[80vh]  justify-center container mx-auto">
     <div className="">

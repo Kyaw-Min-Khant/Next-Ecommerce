@@ -1,6 +1,6 @@
 import { StateContextCustom } from "@/services/provider/stateProvider"
+import { stringFormat } from "@/utlils/stringformat"
 import { useRouter } from "next/navigation"
-
 export interface CardType{
   id: number,
   title: string,
@@ -27,7 +27,7 @@ return (
       <img onClick={()=>router.push(`/products/${data?.id}`)}  className="mx-auto object-contain h-[180px]"  alt="image" src={data?.image}/>
       <div className="flex p-3 flex-col justify-between gap-y-2">
         <div className="flex justify-between items-center">
-        <h1 className="text-[16px] font-semibold text-ellipsis">{data?.title?.slice(0,15)+"..."}</h1>
+        <h1 className="text-[16px] font-semibold text-ellipsis">{stringFormat({text:data?.title,length:15})}</h1>
         <h1 className="text-[14px] font-medium">$ {data?.price}</h1>
         </div>
         <h2 className=" h-[40px] text-black/80 text-[13px] text-ellipsis overflow-hidden">
